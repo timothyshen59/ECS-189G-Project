@@ -17,11 +17,9 @@ if 1:
     # ---- objection initialization setction ---------------
     data_obj = Dataset_Loader('stage_4_data', '')
 
-
-
     method_obj = Method_RNN('RNN', '')
     result_obj = Result_Saver('saver', '')
-    result_obj.result_destination_folder_path = '../../result/stage_3_result/CNN_'
+    result_obj.result_destination_folder_path = '../../result/stage_4_result/'
     result_obj.result_destination_file_name = 'prediction_result'
 
     setting_obj = Setting_Train_Test_Split('', '')

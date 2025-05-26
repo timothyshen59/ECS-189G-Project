@@ -1,7 +1,7 @@
 '''
 Concrete SettingModule class for a specific experimental SettingModule
 '''
-
+from local_code.base_class.dataset import dataset
 # Copyright (c) 2017-Current Jiawei Zhang <jiawei@ifmlab.org>
 # License: TBD
 
@@ -15,7 +15,11 @@ class Setting_Train_Test_Split(setting):
     # fold = 3
 
     def load_run_save_evaluate(self):
-        data = torch.load('../../data/stage_4_data/classification_dataset.pt')
+        try:
+            data = torch.load('../../data/stage_4_data/classification_dataset.pt')
+        except FileNotFoundError:
+            self.dataset.load()
+            data = torch.load('../../data/stage_4_data/classification_dataset.pt')
 
         # # load dataset
 

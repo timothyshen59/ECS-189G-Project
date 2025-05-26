@@ -57,9 +57,9 @@ class Dataset_Loader(dataset):
 
         torch.save({
             'X_train': X_train_padded,
-            'y_train': torch.tensor(y_train),
+            'y_train': torch.tensor(y_train, dtype=torch.long),
             'X_test': X_test_padded,
-            'y_test': torch.tensor(y_test)
+            'y_test': torch.tensor(y_test, dtype=torch.long)
         }, '../../data/stage_4_data/classification_dataset.pt')
 
         print(".pt file saved")
@@ -92,6 +92,8 @@ class Dataset_Loader(dataset):
         for token in tokens:
             if token in self.glove.stoi:
                 indices.append(self.glove.stoi[token])
+
+        indices = indices[:256]
 
         embeddings = self.glove.vectors[torch.tensor(indices)]
         return embeddings
