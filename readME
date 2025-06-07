@@ -5,6 +5,7 @@ How to Run GCN
     - location: local_code/stage_5_code/Method_GCN.py
 2) Right click on the file and click "Run 'Method_GCN'"
     - This will call classes and functions within local_code/stage_5_code/ to train and evaluate the model
+3) You can modify the dataset and model settings/hyperparameters within lines 48-52 and and 22-37 of Method_GCN.py respectively.
 
 Outputs
     - Average Test Accuracy across 50 runs 
